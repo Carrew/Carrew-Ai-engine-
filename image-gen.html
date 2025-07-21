@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Carrew AI Image Generator</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #202123;
+      color: #e5e5e5;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+    }
+    header {
+      background: #343541;
+      padding: 1.2rem 1.5rem;
+      font-weight: 600;
+      font-size: 1.5rem;
+      text-align: center;
+      letter-spacing: 0.05em;
+      user-select: none;
+    }
+    nav {
+      background: #2a2a33;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0.7rem 0;
+      font-weight: 600;
+    }
+    nav a {
+      color: #8f8f8f;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      padding: 0.2rem 0.4rem;
+      border-radius: 4px;
+    }
+    nav a:hover {
+      color: #fff;
+      background: #444451;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 1.5rem;
+      background: #343541;
+      gap: 1.5rem;
+      overflow-y: auto;
+    }
+    #prompt-input {
+      width: 100%;
+      padding: 1rem 1.2rem;
+      font-size: 1rem;
+      border-radius: 9999px;
+      border: none;
+      outline: none;
+      background: #202123;
+      color: #e5e5e5;
+      box-shadow: inset 0 0 5px rgba(0,0,0,0.6);
+      transition: box-shadow 0.3s ease;
+    }
+    #prompt-input:focus {
+      box-shadow: inset 0 0 8px #10a37f;
+    }
+    #generate-btn {
+      align-self: flex-end;
+      background: #10a37f;
+      border: none;
+      border-radius: 9999px;
+      padding: 0.7rem 2rem;
+      color: white;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+      user-select: none;
+      box-shadow: 0 4px 10px rgba(16, 163, 127, 0.5);
+    }
+    #generate-btn:hover {
+      background: #0e8e68;
+      box-shadow: 0 6px 14px rgba(14, 142, 104, 0.7);
+    }
+    #image-output {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      min-height: 300px;
+      background: #202123;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(16,163,127,0.4);
+      padding: 1rem;
+    }
+    #image-output img {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.7);
+    }
+    #loading-text {
+      color: #10a37f;
+      font-weight: 600;
+      font-size: 1.2rem;
+      display: none;
+      justify-content: center;
+      align-items: center;
+    }
+    footer {
+      text-align: center;
+      padding: 0.6rem;
+      font-size: 0.85rem;
+      color: #666;
+      background: #2a2a33;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <header>Carrew AI Image Generator</header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="chatbot.html">Chatbot</a>
+    <a href="login.html">Login</a>
+  </nav>
+  <main>
+    <input type="text" id="prompt-input" placeholder="Describe the image you want..." aria-label="Image prompt input" />
+    <button id="generate-btn" aria-label="Generate image">Generate</button>
+    <div id="loading-text">Generating image, please wait...</div>
+    <div id="image-output" aria-live="polite" aria-atomic="true"></div>
+  </main>
+  <footer>© 2025 Carrew. All rights reserved.</footer>
+
+  <script>
+    const promptInput = document.getElementById('prompt-input');
+    const generateBtn = document.getElementById('generate-btn');
+    const imageOutput = document.getElementById('image-output');
+    const loadingText = document.getElementById('loading-text');
+
+    function setLoading(isLoading) {
+      loadingText.style.display = isLoading ? 'flex' : 'none';
+      generateBtn.disabled = isLoading;
+      if (isLoading) {
+        imageOutput.innerHTML = '';
+      }
+    }
+
+    // Mock function: Replace with your real AI image generation API call
+    function generateImage(prompt) {
+      return new Promise((resolve) => {
+        // Fake delay to simulate processing
+        setTimeout(() => {
+          // Using Unsplash random photo as placeholder (you can replace)
+          const fakeUrl = `https://source.unsplash.com/featured/?${encodeURIComponent(prompt)}`;
+          resolve(fakeUrl);
+        }, 2000);
+      });
+    }
+
+    generateBtn.addEventListener('click', async () => {
+      const prompt = promptInput.value.trim();
+      if (!prompt) {
+        alert('Please enter a description for the image.');
+        return;
+      }
+      setLoading(true);
+      try {
+        const imageUrl = await generateImage(prompt);
+        imageOutput.innerHTML = `<img src="${imageUrl}" alt="Generated image for prompt: ${prompt}" />`;
+      } catch (error) {
+        imageOutput.textContent = 'Sorry, failed to generate the image.';
+      }
+      setLoading(false);
+    });
+
+    promptInput.addEventListener('keypress', e => {
+      if (e.key === 'Enter') {
+        generateBtn.click();
+      }
+    });
+  </script>
+</body>
+</html>
