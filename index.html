@@ -1,91 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AfriAI - Smart Tools for Africa</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f2f2f2;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    header {
-      background: #4a148c;
-      color: white;
-      padding: 1.5rem;
-      text-align: center;
-      font-size: 1.8rem;
-    }
-
-    main {
-      flex: 1;
-      padding: 2rem;
-      text-align: center;
-    }
-
-    h2 {
-      color: #4a148c;
-    }
-
-    .features {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-      margin-top: 2rem;
-    }
-
-    .features a {
-      display: block;
-      padding: 1rem;
-      background: #6a1b9a;
-      color: white;
-      text-decoration: none;
-      border-radius: 10px;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
-
-    .features a:hover {
-      background: #7b1fa2;
-    }
-
-    footer {
-      background: #eee;
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #555;
-    }
-  </style>
+  <title>Carrew AI Hub</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-
   <header>
-    AfriAI - Smart AI Tools for Africa
-  </header>
-
-  <main>
-    <h2>Welcome to AfriAI</h2>
-    <p>Your all-in-one platform for smart AI services in Liberia and Africa.</p>
-
-    <div class="features">
-      <a href="chatbot.html">Chatbot Assistant 🤖</a>
-      <a href="imagegen.html">Image Generator 🎨</a>
-      <!-- Future: Add voice, video, or text generator tools -->
-    </div>
-  </main>
-
-  <footer>
-    &copy; 2025 AfriAI | Made with ❤️ in Liberia <br />
-    Created by Carrew S. Sandi™
-  </footer>
-
-</body>
+    <h1>🤖 Carrew AI Hub</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="chatbot.html">Chatbot</a></li>
+        <li><a href="image-gen.html">Image Gen</a></li>
+        <li><a href="login.html">Login</a></li>
+        <li><a href="register.html">Register</a></li>
+      </ul>
+      <button id="darkToggle">🌙</button>
+    </nav>
+  </header>  <main>
+    <section class="hero">
+      <h2>Welcome to Carrew AI Hub</h2>
+      <p>Your personal assistant for chatting, generating images, and more — built with love for Africa.</p>
+      <a href="chatbot.html" class="btn">Try the AI Chatbot</a>
+      <a href="image-gen.html" class="btn">Generate AI Images</a>
+    </section>
+  </main>  <footer>
+    <p>&copy; 2025 Carrew. All rights reserved.</p>
+  </footer>  <script>
+    const toggle = document.getElementById("darkToggle");
+    toggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+    });
+  </script></body>
 </html>
