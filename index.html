@@ -2,21 +2,90 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SmartAI Africa</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AfriAI - Smart Tools for Africa</title>
   <style>
-    body { font-family: Arial, sans-serif; text-align: center; padding: 30px; background: #f2f2f2; }
-    h1 { color: #2c3e50; }
-    .btn { padding: 10px 20px; margin: 10px; font-size: 16px; cursor: pointer; border-radius: 8px; border: none; }
-    .chat { background-color: #4CAF50; color: white; }
-    .image { background-color: #3498db; color: white; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f2f2f2;
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background: #4a148c;
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+
+    main {
+      flex: 1;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    h2 {
+      color: #4a148c;
+    }
+
+    .features {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      margin-top: 2rem;
+    }
+
+    .features a {
+      display: block;
+      padding: 1rem;
+      background: #6a1b9a;
+      color: white;
+      text-decoration: none;
+      border-radius: 10px;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .features a:hover {
+      background: #7b1fa2;
+    }
+
+    footer {
+      background: #eee;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
   </style>
 </head>
 <body>
-  <h1>Welcome to SmartAI Africa</h1>
-  <p>Your AI assistant for chatbot and image generation</p>
-  <button class="btn chat" onclick="alert('Chatbot coming soon')">Chat with AI</button>
-  <button class="btn image" onclick="alert('Image generator coming soon')">Generate Image</button>
-  <p style="margin-top: 30px; font-size: 14px;">Liberia & Africa’s future of smart technology 🌍</p>
+
+  <header>
+    AfriAI - Smart AI Tools for Africa
+  </header>
+
+  <main>
+    <h2>Welcome to AfriAI</h2>
+    <p>Your all-in-one platform for smart AI services in Liberia and Africa.</p>
+
+    <div class="features">
+      <a href="chatbot.html">Chatbot Assistant 🤖</a>
+      <a href="imagegen.html">Image Generator 🎨</a>
+      <!-- Future: Add voice, video, or text generator tools -->
+    </div>
+  </main>
+
+  <footer>
+    &copy; 2025 AfriAI | Made with ❤️ in Liberia <br />
+    Created by Carrew S. Sandi™
+  </footer>
+
 </body>
 </html>
